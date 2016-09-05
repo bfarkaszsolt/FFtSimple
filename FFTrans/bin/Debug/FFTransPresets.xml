@@ -1,0 +1,56 @@
+<Presets>
+
+<Preset name="Copy video"
+	 vcodec="copy"
+	 acodec=""
+	 acodec_bitrate=""
+	 pix_fmt=""
+	 preset_speed=""
+	 vcodec_bitrate=""
+	 scale="">
+</Preset>
+
+
+<Preset name="Mpeg2"
+	 vcodec="mpeg2video"
+	 acodec=""
+	 acodec_bitrate=""
+	 pix_fmt=""
+	 preset_speed=""
+	 vcodec_bitrate="50000"
+	 scale="">
+</Preset>
+ 
+
+<Preset name="mp4"
+	 vcodec="libx264"
+	 acodec="libvo_aacenc"
+	 acodec_bitrate="64k"
+	 pix_fmt="yuv420p"
+	 preset_speed="veryfast"
+	 vcodec_bitrate="600k"
+	 scale="-1:288">
+</Preset>
+
+
+<Preset name="h265"
+	 vcodec="libx265"
+	 acodec="libvo_aacenc"
+	 acodec_bitrate="64k"
+	 pix_fmt="yuv420p"
+	 preset_speed="veryfast"
+	 vcodec_bitrate="365k"
+	 scale="-1:288">
+</Preset>
+
+<Preset name="Wav_demux"
+	 vcodec=""
+	 acodec="pcm_s16le"
+	 acodec_bitrate=""
+	 pix_fmt=""
+	 preset_speed=""
+	 vcodec_bitrate=""
+	 scale="">
+</Preset>
+
+</Presets>

@@ -1,0 +1,24 @@
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\bin\Debug\FFTrans.exe.config
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\bin\Debug\FFTrans.exe
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\bin\Debug\FFTrans.pdb
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\obj\Debug\FFTrans.csprojResolveAssemblyReference.cache
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\obj\Debug\FFTrans.exe
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\obj\Debug\FFTrans.pdb
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\obj\Debug\FFTrans.MainForm.resources
+C:\Users\zfarkas\Documents\SharpDevelop Projects\FFTrans\FFTrans\obj\Debug\FFTrans.csproj.GenerateResource.Cache
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\bin\Debug\FFTrans.exe.config
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\bin\Debug\FFTrans.exe
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\bin\Debug\FFTrans.pdb
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Debug\FFTrans.csprojResolveAssemblyReference.cache
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Debug\FFTrans.MainForm.resources
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Debug\FFTrans.csproj.GenerateResource.Cache
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Debug\FFTrans.exe
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Debug\FFTrans.pdb
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\bin\Debug\FFTrans.exe.config
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\bin\Debug\FFTrans.exe
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\bin\Debug\FFTrans.pdb
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\obj\Debug\FFTrans.csprojResolveAssemblyReference.cache
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\obj\Debug\FFTrans.MainForm.resources
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\obj\Debug\FFTrans.csproj.GenerateResource.Cache
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\obj\Debug\FFTrans.exe
+C:\Utils\Bin\Projects\FFtSimple\FFTrans\obj\Debug\FFTrans.pdb

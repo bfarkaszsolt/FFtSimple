@@ -1,0 +1,6 @@
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\bin\Release\FFTrans.exe.config
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\bin\Release\FFTrans.exe
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Release\FFTrans.csprojResolveAssemblyReference.cache
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Release\FFTrans.MainForm.resources
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Release\FFTrans.csproj.GenerateResource.Cache
+C:\UTILS\Bin\Projects\FFTrans\FFTrans\obj\Release\FFTrans.exe
