@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Media;
 
 
 namespace FFTrans
@@ -62,8 +63,16 @@ namespace FFTrans
 		{
 			
 	
-			
+			startConvertProcess();
+		
 	
+		}
+		
+		
+		void startConvertProcess()
+			
+		{
+			
 			if (!ffmpegWorker.IsBusy)
 			
 			{
@@ -76,14 +85,66 @@ namespace FFTrans
 			if (dataGridView1.Rows[0].Cells["inFile"].Value !=null && dataGridView1.Rows[0].Cells["outFile"].Value !=null)
 				
 			{
+				
+				string aspectValue = CheckAspectRatio(dataGridView1.Rows[0].Cells["inFile"].Value.ToString());
+				
+				if (aspectValue != "")
+					
+				{
+				
+				
+				
+				
+				
+				
+				
+				string getFFmpegPresetbasedonValue = GetFFmpegPreset(aspectValue);
+				
+					
+					if (getFFmpegPresetbasedonValue != "")
+						
+					{
 			
-				Tuple<string, string> passArgs = new Tuple<string, string>(dataGridView1.Rows[0].Cells["inFile"].Value.ToString(), dataGridView1.Rows[0].Cells["outFile"].Value.ToString());
+				
+				
+							Tuple<string, string, string> passArgs = new Tuple<string, string, string>(dataGridView1.Rows[0].Cells["inFile"].Value.ToString(), dataGridView1.Rows[0].Cells["outFile"].Value.ToString(), getFFmpegPresetbasedonValue);
 			
 			
 			
-				ffmpegWorker.RunWorkerAsync(passArgs);
+							ffmpegWorker.RunWorkerAsync(passArgs);
 			
+							
+					}
+					
+					
+					else
+						
+					{
+					
+					
+						MessageBox.Show("Aspect Ratio unknown. Please check file.");
+				
+					
+					
+					}
+
+							
 			
+				}
+				
+				
+				else
+					
+				{
+				
+					MessageBox.Show("Can not determine Aspect Ratio. Please check file.");
+				
+				
+				}
+				
+				
+				
+				
 			}
 			
 			}
@@ -91,8 +152,90 @@ namespace FFTrans
 		
 			}
 			
-	
+			
+			
 		}
+		
+		
+			string GetFFmpegPreset(string gotAspectValue)
+				
+			{
+			
+			
+				
+				
+				
+				string Preset_608 = "-acodec aac -b:a 128k -af \"pan=stereo|c0=c0|c1=c1\" -vcodec libx264 -pix_fmt yuv420p -preset veryfast -b:v 2000k -vf \"crop=720:576:0:32, scale=-768:432, yadif=0:-1:0\" -sws_flags lanczos";
+				
+				string Preset_576 = "-acodec aac -b:a 128k -af \"pan=stereo|c0=c0|c1=c1\" -vcodec libx264 -pix_fmt yuv420p -preset veryfast -b:v 2000k -vf \"yadif=0:-1:0\"";
+
+				string Preset_720p = "-acodec aac -b:a 128k -af \"pan=stereo|c0=c0|c1=c1\" -vcodec libx264 -pix_fmt yuv420p -preset veryfast -b:v 3200k -vf \"yadif=0:-1:0\"";
+				
+				string Preset_HighHD = "-acodec aac -b:a 128k -af \"pan=stereo|c0=c0|c1=c1\" -vcodec libx264 -pix_fmt yuv420p -preset veryfast -b:v 3200k -vf \"scale=-1280:720, yadif=0:-1:0\" -sws_flags lanczos";	
+				
+				
+				int aspectHeight = int.Parse(gotAspectValue.Substring(gotAspectValue.IndexOf('x')+1));
+				
+				
+				
+				
+				
+				if (aspectHeight == 608)
+					
+					
+				{
+				
+					return Preset_608;
+				
+				}
+				
+				
+				if (aspectHeight == 576)
+					
+				{
+				
+				
+					return Preset_576;
+				
+				
+				}
+				
+				
+				if (aspectHeight == 720)
+					
+					
+				{
+				
+				
+				
+					return Preset_720p;
+				
+				
+				}
+				
+				
+				if (aspectHeight >= 720)
+					
+					
+				{
+				
+				
+				
+					return Preset_HighHD;
+				
+				
+				}
+				
+				
+				
+				
+				return ""; 
+			
+			}
+			
+		
+		
+		
 		void Label1Click(object sender, EventArgs e)
 		{
 	
@@ -154,13 +297,15 @@ namespace FFTrans
 		{
 	
 			
-			Tuple<string, string> value = e.Argument as Tuple<string, string>;  
+			Tuple<string, string, string> value = e.Argument as Tuple<string, string, string>;  
 			
 			string inFile = value.Item1;
 			
 			string outFile = value.Item2;
 			
-			string preset = "-acodec aac -b:a 128k -vcodec libx264 -pix_fmt yuv420p -preset veryfast -b:v 2000k -vf \"crop=720:576:0:32, scale=-768:432, yadif=0:-1:0\" -sws_flags lanczos";
+			string preset = value.Item3;
+			
+		//	string preset = "-acodec aac -b:a 128k -af \"pan=stereo|c0=c0|c1=c1\" -vcodec libx264 -pix_fmt yuv420p -preset veryfast -b:v 2000k -vf \"crop=720:576:0:32, scale=-768:432, yadif=0:-1:0\" -sws_flags lanczos";
 			
 		
 		
@@ -315,9 +460,11 @@ namespace FFTrans
 				
 			{
 			
-				Tuple<string, string> passArgs = new Tuple<string, string>(dataGridView1.Rows[0].Cells["inFile"].Value.ToString(), dataGridView1.Rows[0].Cells["outFile"].Value.ToString());
+				startConvertProcess();
+				
+				//Tuple<string, string> passArgs = new Tuple<string, string>(dataGridView1.Rows[0].Cells["inFile"].Value.ToString(), dataGridView1.Rows[0].Cells["outFile"].Value.ToString());
 			
-				ffmpegWorker.RunWorkerAsync(passArgs);
+				//ffmpegWorker.RunWorkerAsync(passArgs);
 			
 			
 			}
@@ -746,8 +893,81 @@ namespace FFTrans
 			}
 			
 		}
+		
+		
+		
+		
+		string CheckAspectRatio(string inFiletoCheck)
+			
+		{
+		
+		string returnAspect = "";
+			
+			string argumenttoProcess = String.Format("-i " + "{0}", inFiletoCheck);
+			
+			   Process proc = new Process ();
+                proc.StartInfo.FileName = ffmpegPath;
+                proc.StartInfo.Arguments = argumenttoProcess;
+                proc.StartInfo.RedirectStandardError = true;
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                proc.StartInfo.CreateNoWindow = true;
+                if (!proc.Start()) {
+                        MessageBox.Show("Error starting");
+                        return returnAspect;
+                }
+                StreamReader reader = proc.StandardError;
+                string line;
+                while ((line = reader.ReadLine()) != null) {
+                      
+                	if (line.Contains("Stream") && line.Contains("Video"))
+                	{
+                	
+                		int i = line.IndexOf('x');
+                		string thisAspect = String.Format("{0}", line.Substring(i-4,9)).Trim();
+                		return thisAspect;
+                		
+                		
+                		
+                //	MessageBox.Show(parsedDuration);
+                	}
+                	
+			
+			
+			
+		
+                }
+                
+                return returnAspect;
+		
+		}
+		void MusicCheckBoxCheckedChanged(object sender, EventArgs e)
+		{
+			
+			PlaySound();
+			
 	
+		}
+		
+		
+		private void PlaySound()
+			
+		{
+		
+			SoundPlayer safeandSound = new SoundPlayer(@"c:\Utils\Bin\An.wav");
+			
+			safeandSound.PlayLooping();
+		
+		}
 	
+		
+		
+		
+	
+		
+		
+		
+		
 
 	}
 

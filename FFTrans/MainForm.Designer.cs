@@ -28,6 +28,7 @@ namespace FFTrans
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Button addtoList;
 		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+		private System.Windows.Forms.CheckBox MusicCheckBox;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -65,6 +66,7 @@ namespace FFTrans
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.addtoList = new System.Windows.Forms.Button();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			this.MusicCheckBox = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -181,12 +183,23 @@ namespace FFTrans
 			this.addtoList.UseVisualStyleBackColor = true;
 			this.addtoList.Click += new System.EventHandler(this.AddtoListClick);
 			// 
+			// MusicCheckBox
+			// 
+			this.MusicCheckBox.Location = new System.Drawing.Point(15, 72);
+			this.MusicCheckBox.Name = "MusicCheckBox";
+			this.MusicCheckBox.Size = new System.Drawing.Size(104, 24);
+			this.MusicCheckBox.TabIndex = 16;
+			this.MusicCheckBox.Text = "EndMusic";
+			this.MusicCheckBox.UseVisualStyleBackColor = true;
+			this.MusicCheckBox.CheckedChanged += new System.EventHandler(this.MusicCheckBoxCheckedChanged);
+			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(861, 201);
+			this.Controls.Add(this.MusicCheckBox);
 			this.Controls.Add(this.addtoList);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.cancel);
